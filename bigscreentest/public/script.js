@@ -1,48 +1,37 @@
-$( document ).ready(function() {
-    console.log( "ready!" );
-<<<<<<< HEAD
-intersectFunc();
-
-=======
-    console.log("BASSE WAS HERE");
-    move();
-    move2();
->>>>>>> origin/master
+$(document).ready(function() {
+    console.log("ready!");
 });
 
-var size = $("#ball1").size();
+function collision($div1, $div2) {
+    var x1 = $div1.offset().left;
+    var y1 = $div1.offset().top;
+    var h1 = $div1.outerHeight(true);
+    var w1 = $div1.outerWidth(true);
+    var b1 = y1 + h1;
+    var r1 = x1 + w1;
 
-// Move the element with id 'dragBox' to follow the cursor,
-// with the cursor in the middle
-$('#ball1')
-  .css({
-    left: pointerLeft - (size.width/2.0),
-    top: pointerTop - (size.height/2.0)
-  })
-  .html(coordinates);
+    var x2 = $div2.offset().left;
+    var y2 = $div2.offset().top;
+    var h2 = $div2.outerHeight(true);
+    var w2 = $div2.outerWidth(true);
+    var b2 = y2 + h2;
+    var r2 = x2 + w2;
 
-var counter = 0;
-
-var intersecting = $(".ballFrame1").findIntersecting(".ballFrame2");
-
-var isIntersecting = $('.ballFrame1').intersects('.ballFrame2');
-
-function intersectFunc(){
-if (isIntersecting){
-  counter = counter + 10;
-  $("#ball1").css("background-color", "blue");
-  console.log(counter);
-  console.log(isIntersecting);
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) {
+      $('#div1').css({backgroundColor: 'rgb(212, 128, 146)'});
+      $('#div2').css({backgroundColor: 'rgb(124, 180, 194)'});
+      $('.text').css({fontSize: '50px', color:'black',top:'25%'})
+      $('.text').text("wait until the ballz collide");
+      $('body').css({backgroundColor:'rgba(75, 22, 154, 0.15)'})
+    } else {
+      $('body').css({backgroundColor:'rgba(159, 76, 114, 0.71)'})
+      $('#div1').css({backgroundColor: 'rgb(235, 204, 104)'});
+      $('#div2').css({backgroundColor: 'rgb(136, 200, 113)'});
+      $('.text').css({fontSize: '300px', color:'red', top:'0%'})
+      $('.text').text("collide!");
+    }
 }
-}
-function move2(){
 
-$('#object2').animate({top: '40%'});
-$('#object2').animate({top: '10%'});
-$('#object2').animate({left: '60%'});
-$('#object2').animate({left: '20%', top: '30%'});
-$('#object2').animate({top: '80%'});
-$('#object2').animate({left: '50%'}, move2);
-
-
-}
+window.setInterval(function() {
+    $('.text').text(collision($('#div1'), $('#div2')));
+});
