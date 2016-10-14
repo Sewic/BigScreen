@@ -1,21 +1,31 @@
-var counter = 0;
-
 $( document ).ready(function() {
     console.log( "ready!" );
-    console.log("BASSE WAS HERE");
-    move();
+intersectFunc();
+
 });
 
+var size = $("#ball1").size();
 
-function move(){
+// Move the element with id 'dragBox' to follow the cursor,
+// with the cursor in the middle
+$('#ball1')
+  .css({
+    left: pointerLeft - (size.width/2.0),
+    top: pointerTop - (size.height/2.0)
+  })
+  .html(coordinates);
 
-$('#object').animate({top: '10%'});
-$('#object').animate({top: '50%'});
-$('#object').animate({left: '10%'});
-$('#object').animate({left: '70%', top: '80%'});
-$('#object').animate({top: '50%'});
-$('#object').animate({left: '50%'}, move);
-counter++;
-console.log("counter: " + counter);
+var counter = 0;
 
+var intersecting = $(".ballFrame1").findIntersecting(".ballFrame2");
+
+var isIntersecting = $('.ballFrame1').intersects('.ballFrame2');
+
+function intersectFunc(){
+if (isIntersecting){
+  counter = counter + 10;
+  $("#ball1").css("background-color", "blue");
+  console.log(counter);
+  console.log(isIntersecting);
+}
 }
