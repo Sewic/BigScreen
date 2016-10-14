@@ -1,7 +1,13 @@
 $( document ).ready(function() {
     console.log( "ready!" );
+<<<<<<< HEAD
 intersectFunc();
 
+=======
+    console.log("BASSE WAS HERE");
+    move();
+    move2();
+>>>>>>> origin/master
 });
 
 var size = $("#ball1").size();
@@ -28,4 +34,15 @@ if (isIntersecting){
   console.log(counter);
   console.log(isIntersecting);
 }
+}
+function move2(){
+
+$('#object2').animate({top: '40%'});
+$('#object2').animate({top: '10%'});
+$('#object2').animate({left: '60%'});
+$('#object2').animate({left: '20%', top: '30%'});
+$('#object2').animate({top: '80%'});
+$('#object2').animate({left: '50%'}, move2);
+
+
 }
