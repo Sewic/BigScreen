@@ -21,14 +21,14 @@ function collision($div1, $div2) {
       $('#div1').css({backgroundColor: 'rgb(212, 128, 146)'});
       $('#div2').css({backgroundColor: 'rgb(124, 180, 194)'});
       $('.text').css({fontSize: '50px', color:'black',top:'25%'})
-      $('.text').text("wait until the ballz collide");
+      // $('.text').text("wait until the ballz collide");
       $('body').css({backgroundColor:'rgba(75, 22, 154, 0.15)'})
     } else {
-      $('body').css({backgroundColor:'rgba(159, 76, 114, 0.71)'})
+      // $('body').css({backgroundColor:'rgba(159, 76, 114, 0.71)'})
       $('#div1').css({backgroundColor: 'rgb(235, 204, 104)'});
       $('#div2').css({backgroundColor: 'rgb(136, 200, 113)'});
-      $('.text').css({fontSize: '300px', color:'red', top:'0%'})
-      $('.text').text("collide!");
+      // $('.text').css({fontSize: '300px', color:'red', top:'0%'})
+      // $('.text').text("collide!");
     }
 }
 
